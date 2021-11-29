@@ -177,7 +177,6 @@ def resnet18_model(input_shape):
     #Returns
         Instance of ResNet18
     """
-    print('hhhhhhhhh')
     X_input = tf.keras.Input(shape= (input_shape,input_shape,3))
     
     #preprocessing
@@ -214,11 +213,9 @@ def resnet18_model(input_shape):
     
     #Classification Block
     X = tf.keras.layers.GlobalAveragePooling2D(name='avg_pool')(X)
-    X = tf.keras.layers.Dense(107, activation='softmax', name='fc1000')(X)
+    X = tf.keras.layers.Dense(1, activation='sigmoid', name='fc1000')(X)
     
     model = tf.keras.Model(inputs = X_input, outputs = X, name='resnet18')
-    
-    model.load_weights('/dfsdata2/test3_data/jackFan/utils/weights/resnet18_imagenet_1000_no_top.h5', by_name=True)
     
     model.summary()
     
@@ -237,14 +234,7 @@ def resnet50_model(input_shape):
     
     X_input = tf.keras.Input(shape= (input_shape,input_shape,3))
     
-    #preprocessing
-    X = tf.keras.Sequential(
-    [
-        tf.keras.layers.experimental.preprocessing.RandomCrop(224,224),
-    ]
-    )(X_input)
-    
-    X = tf.keras.layers.experimental.preprocessing.Rescaling(1./255)(X)
+    X = tf.keras.layers.experimental.preprocessing.Rescaling(1./255)(X_input)
     
     
     #First Stage
@@ -279,11 +269,9 @@ def resnet50_model(input_shape):
     
     #Classification Block
     X = tf.keras.layers.GlobalAveragePooling2D(name='avg_pool')(X)
-    X = tf.keras.layers.Dense(107, activation='softmax', name='fc1000')(X)
+    X = tf.keras.layers.Dense(1, activation='sigmoid', kernel_regularizer=tf.keras.regularizers.l2(1e-4), name='fc1000')(X)
     
     model = tf.keras.Model(inputs = X_input, outputs = X, name='resnet50')
-    
-    model.load_weights('/dfsdata2/test3_data/jackFan/utils/weights/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5', by_name=True)
     
     model.summary()
     
