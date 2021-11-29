@@ -36,7 +36,7 @@ def preprocess_train(train_ds):
     data_augmentation = tf.keras.Sequential(
         [
             tf.keras.layers.experimental.preprocessing.Normalization(),
-            tf.keras.layers.experimental.preprocessing.RandomFlip("horizontal"),
+            #tf.keras.layers.experimental.preprocessing.RandomFlip("horizontal"),
             
         ]
     )

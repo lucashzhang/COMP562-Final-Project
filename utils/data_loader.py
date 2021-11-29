@@ -9,33 +9,30 @@ def load_data(batch_size):
     return train_ds, val_ds
 
 def import_data(batch_size):
-
     #dataset
     train_ds = tf.keras.preprocessing.image_dataset_from_directory(
-        '/dfsdata2/test3_data/jackFan/datasets/resized_train/',
+        '/dfs/data/jackFan/COMP562-Final-Project/dataset/trainingData',
         color_mode="rgb",
         labels="inferred",
-        label_mode="categorical",
+        label_mode="binary",
         validation_split=0.2,
         subset="training",
         seed=1337,
-        image_size = (256, 256),
+        image_size = (256,256), #(512, 512),
         batch_size = batch_size,
         shuffle=True,
-        #smart_resize=True,
     )
     
     val_ds = tf.keras.preprocessing.image_dataset_from_directory(
-        '/dfsdata2/test3_data/jackFan/datasets/resized_val/',
+        '/dfs/data/jackFan/COMP562-Final-Project/dataset/trainingData',
         color_mode="rgb",
         labels="inferred",
-        label_mode="categorical",
+        label_mode="binary",
         validation_split=0.2,
         subset="validation",
         seed=1337,
-        image_size = (256, 256),
+        image_size = (256,256), #(512, 512),
         batch_size = batch_size,
-        #smart_resize=True,
     )
     
     """
