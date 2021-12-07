@@ -5,6 +5,8 @@
 ### Keypoint detection on COCO validation 2017
 <p align="center"> <img src='readme/performance.png' align="center" height="512px"></p>
 
+![Model Table](./readme/Table.png)
+
 | Backbone     |  AP       |  FPS         | TensorRT Speed | GFLOPs |Download |
 |--------------|-----------|--------------|----------|----------|----------|
 |DLA-34        | 62.7      |    23      |  - |  - |[model](https://drive.google.com/open?id=1IahJ3vpjTVu1p-Okf6lcn-bM7fVKNg6N)  |
