@@ -21,3 +21,6 @@ Modify the `exp_id` and `log_id` in `train.py`.
 ```
 python train.py
 ```
+
+### Final Report
+[Final Report PDF link](562_Final_Project.pdf)
